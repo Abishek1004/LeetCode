@@ -1,15 +1,16 @@
 class Solution {
     public String reverseVowels(String s) {
-        char[] arr = s.toCharArray();
-        int left = 0;
-        int right = arr.length-1;
-        while(left < right){
+        char[] arr=s.toCharArray();
 
-            while(left < right && !checkChar(arr[left])){
+        int left = 0;
+        int right = s.length()-1;
+
+        while(left < right){
+            while(left < right && !checkChar(s.charAt(left))){
                 left++;
             }
 
-            while(left < right && !checkChar(arr[right])){
+            while(left < right && !checkChar(s.charAt(right))){
                 right--;
             }
 
@@ -19,12 +20,12 @@ class Solution {
 
             left++;
             right--;
+
         }
         return new String(arr);
-
     }
-    public Boolean checkChar(char s){
-        s = Character.toLowerCase(s);
-        return s=='a' || s=='e' || s=='i' || s=='o' || s=='u';
+    public static boolean checkChar(char ts){
+        char t=Character.toLowerCase(ts);
+        return t=='a' || t=='e' || t=='i' || t=='o' || t=='u';
     }
 }
